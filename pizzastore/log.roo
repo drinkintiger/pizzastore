@@ -1,0 +1,22 @@
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-07 07:43:12
+project --topLevelPackage com.tsoy.pizza --projectName pizzastore --java 6 --packaging JAR
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-07 07:43:23
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-11-07 07:46:03
+jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY 
+entity jpa --class ~.domain.Topping --testAutomatically 
+field string --fieldName name --notNull --sizeMin 2
+entity jpa --class ~.domain.Base --testAutomatically
+field string --fieldName name --notNull --sizeMin 2
+entity jpa --class ~.domain.Pizza --testAutomatically
+field string --fieldName name --notNull --sizeMin 2
+field number --fieldName price --type java.lang.Float
+field set --fieldName toppings --type ~.domain.Topping
+field reference --fieldName base --type ~.domain.Base
+entity jpa --class ~.domain.PizzaOrder --testAutomatically
+field string --fieldName name --notNull --sizeMin 2
+field string --fieldName address --sizeMax 30
+field number --fieldName total --type java.lang.Float
+field date --fieldName deliveryDate --type java.util.Date
+field set --fieldName pizzas --type ~.domain.Pizza
+perform tests
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-11-08 01:33:49
